@@ -11,6 +11,8 @@ WHITE = (0,0,0)
 
 Gfont = 'Geometr212 BkCn BT',10
 
+prikaze_pike = True
+
 def za_slike():
 
 	a = Pika(400,90,False)
@@ -183,6 +185,7 @@ def mreza():
 		prejsen_stolpec = stolpec
 
 def mreza2():
+	prikaze_pike = False
 	mreza_gumb.configure(state=tk.DISABLED)
 
 	prejsen_stolpec = False
@@ -227,7 +230,7 @@ class Pika(pg.sprite.Sprite):
 		self.image.fill(WHITE)
 		self.image.set_colorkey(WHITE)
 		self.rect = self.image.get_rect()
-		if not self.movable:
+		if not self.movable or prikaze_pike:
 				pg.draw.circle(self.image,self.color,(self.width//2,self.width//2),self.width//2)
 		self.rect.center = (self.x,self.y)
 		self.pospesek = 1
