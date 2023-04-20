@@ -185,6 +185,7 @@ def mreza():
 		prejsen_stolpec = stolpec
 
 def mreza2():
+	global prikaze_pike
 	prikaze_pike = False
 	mreza_gumb.configure(state=tk.DISABLED)
 
@@ -231,7 +232,7 @@ class Pika(pg.sprite.Sprite):
 		self.image.set_colorkey(WHITE)
 		self.rect = self.image.get_rect()
 		if not self.movable or prikaze_pike:
-				pg.draw.circle(self.image,self.color,(self.width//2,self.width//2),self.width//2)
+			pg.draw.circle(self.image,self.color,(self.width//2,self.width//2),self.width//2)
 		self.rect.center = (self.x,self.y)
 		self.pospesek = 1
 		self.prejsnja_pozicija = (self.x,self.y)
@@ -425,7 +426,8 @@ while running:
 
 	#update	
 	#all_sprites.update()
-	
+	for p in vse_pike:
+		p.update()
 	
 	for i in range(posodobitve):
 		for p in vse_palcke:
@@ -434,8 +436,7 @@ while running:
 	for p in vse_palcke:
 		p.narisi()
 	
-	for p in vse_pike:
-		p.update()
+
 
 	mouse_buttons = pg.mouse.get_pressed()
 	
