@@ -428,11 +428,11 @@ while running:
 		for p in vse_palcke:
 			p.update()
 
-	for p in vse_pike:
-		p.update()	
-
 	for p in vse_palcke:
 		p.narisi()
+	
+	for p in vse_pike:
+		p.update()
 
 	mouse_buttons = pg.mouse.get_pressed()
 	
